@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GDG Zamboanga</title>
+    <link rel="icon" href="assets/img/gdg-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.3.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.3.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+   <div class="navbar-fixed">
+        <nav class="nav white">
+            <div class="nav-wrapper">
+                <a href="./" class="brand-logo semi-grey-text"><strong>GDG ZAMBOANGA</strong></a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="waves-effect waves-green semi-grey-text"><a href="./"><strong>HOME</strong></a></li>
+                    <li class="waves-effect waves-yellow semi-grey-text"><a href="blogs.html"><strong>BLOGS</strong></a></li>
+                    <li class="waves-effect waves-red semi-grey-text"><a href="events.html"><strong>EVENTS</strong></a></li>
+                    <li class="waves-effect waves-purple semi-grey-text"><a href="team.html"><strong>OUR TEAM</strong></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row hoverable white-text">
+        <div class="col s12 left-align blue-grey darken-4">
+            <div style="height:150px;"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col s3 center-align">
+                        <img src="assets/img/gdg-logo.png" class="responsive-img" alt="" width="90%" height="90%">
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s6">
+                        <br>
+                        <h3>About Us</h3>
+                        <br>
+                        <p>Google Developer Group (GDG) Philippines is a group of enthusiastic Filipino developers interested to collaborate and learn more about new technologies.</p>
+                        <p>GDG Philippines is an independent group; our activities and the opinions expressed on any of our official social media pages should in no way be linked to Google, the corporation.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="height:140px;"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-s12">
+            <div style="height:100px;"></div>
+            <div class="container center-align">
+                <img src="assets/img/wwd.png" class="responsive-img" alt="" width="60%" height="60%">
+                <div style="height:70px;"></div>
+                <h3><strong>What we do</strong></h3>
+                <div style="height:100px;"></div>
+                <div class="row">
+                    <div class="col s3 hoverable wwd-section">
+                        <h5 class="wwd-header"><strong>TALKS</strong></h5>
+                        <img src="assets/img/talks.png" alt="" class="responsive-img" width="30%" height="30%">
+                        <p>Get updated with the latest news and announcements</p>
+                    </div>
+                    <div class="col s3 hoverable wwd-section">
+                        <h5 class="wwd-header"><strong>CODELABS</strong></h5>
+                        <img src="assets/img/codes.png" alt="" class="responsive-img" width="30%" height="30%">
+                        <p>Get hands-on activity and mentors to guide you</p>
+                    </div>
+                    <div class="col s3 hoverable wwd-section">
+                        <h5 class="wwd-header"><strong>ROADSHOWS</strong></h5>
+                        <img src="assets/img/shows.png" alt="" class="responsive-img" width="30%" height="30%">
+                        <p>Share knowledge in different colleges and universities</p>
+                    </div>
+                    <div class="col s3 hoverable wwd-section">
+                        <h5 class="wwd-header"><strong>PARTIES</strong></h5>
+                        <img src="assets/img/party.png" alt="" class="responsive-img" width="30%" height="30%">
+                        <p>Watch a live Google's event happening on different countries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row white-text events-section">
+        <div class="col s12">
+            <div style="height:100px;"></div>
+            <div class="container">
+                <h3><strong>Events</strong></h3>
+                <div style="height:50px;"></div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card small horizontal hoverable">
+                            <div class="card-image">
+                                <img src="assets/img/wtm.jpg" alt="">
+                            </div>
+                            <div class="card-stacked semi-grey-text">
+                                <div class="card-content">
+                                    <span class="card-title event-text"><b>Women Techmakers</b></span>
+                                    <a href="#" class="left-align">Event time</a>&emsp;
+                                    <a href="#" class="right-align">Event location</a>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                                <div class="card-action right-align">
+                                    <a class="waves-effect waves-light red darken-2 btn">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="assets/img/wtm.jpg" alt="">
+                            </div>
+                            <div class="card-content semi-grey-text">
+                                <span class="card-title event-text"><b>Women Techmakers</b></span>
+                                <a href="#" class="left-align">Event time</a>&emsp;
+                                <a href="#" class="right-align">Event location</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                            <div class="card-action right-align">
+                                <a class="waves-effect waves-light red darken-2 btn">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="assets/img/wtm.jpg" alt="">
+                            </div>
+                            <div class="card-content semi-grey-text">
+                                <span class="card-title event-text"><b>Women Techmakers</b></span>
+                                <a href="#" class="left-align">Event time</a>&emsp;
+                                <a href="#" class="right-align">Event location</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                            <div class="card-action right-align">
+                                <a class="waves-effect waves-light red darken-2 btn">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height:100px;"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div style="height:100px;"></div>
+            <div class="container">
+                <h3><strong>Blogs</strong></h3>
+                <div style="height:50px;"></div>
+                <div class="row">
+                    <div class="col s6 blog-col">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">
+                                    GDG Zamboanga Roadshow 2018
+                                </span>
+                                <span class="grey-text">Posted:&emsp;July 22, 2018</span>
+                                <br><br><br>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <br>
+                                <a class="waves-effect waves-light blue darken-2 btn right">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6 blog-col">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">GDG Zamboanga Roadshow 2018</span>
+                                <span class="grey-text">Posted:&emsp;July 22, 2018</span>
+                                <br><br><br>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <br>
+                                <a class="waves-effect waves-light blue darken-2 btn right">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 blog-col">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">GDG Zamboanga Roadshow 2018</span>
+                                <span class="grey-text">Posted:&emsp;July 22, 2018</span>
+                                <br><br><br>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <br>
+                                <a class="waves-effect waves-light blue darken-2 btn right">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 blog-col">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">GDG Zamboanga Roadshow 2018</span>
+                                <span class="grey-text">Posted:&emsp;July 22, 2018</span>
+                                <br><br><br>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <br>
+                                <a class="waves-effect waves-light blue darken-2 btn right">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 blog-col">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">GDG Zamboanga Roadshow 2018</span>
+                                <span class="grey-text">Posted:&emsp;July 22, 2018</span>
+                                <br><br><br>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <br>
+                                <a class="waves-effect waves-light blue darken-2 btn right">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height:100px;"></div>
+        </div>
+    </div>
+
+    <div class="row white-text team-section">
+        <div class="col s12">
+            <div class="container">
+                <div style="height:100px;"></div>
+                <h3><strong>Team</strong></h3>
+                <div style="height:70px;"></div>
+                <div class="row">
+                    <div class="col s3 center-align">
+                        <img src="assets/img/medina.jpg" alt="" class="circle responsive-img hoverable">
+                        <h5>Yolynne Medina</h5>
+                        <p>The credentials goes here. The credentials goes here. The credentials goes here.</p>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s3 center-align">
+                        <img src="assets/img/drew.jpg" alt="" class="circle responsive-img hoverable">
+                        <h5>Andrew Baes</h5>
+                        <p>The credentials goes here. The credentials goes here. The credentials goes here.</p>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s3 center-align">
+                        <img src="assets/img/tahil.jpg" alt="" class="circle responsive-img hoverable">
+                        <h5>Salimar Tahil</h5>
+                        <p>The credentials goes here. The credentials goes here. The credentials goes here.</p>
+                    </div>
+                </div>
+                <div style="height:100px;"></div>
+                <div class="center-align">
+                    <a class="waves-effect waves-light white-text"><strong>LEARN MORE ABOUT OUR TEAM</strong></a>
+                </div>
+                <div style="height:70px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 center-align">
+            <div style="height:50px;"></div>
+            <p class="grey-text"><strong>Check out other Google technologies</strong></p>
+            <img src="assets/img/android.png" alt="" class="responsive-img" width="7%" height="7%">
+            <img src="assets/img/assistant.png" alt="" class="responsive-img" width="8%" height="8%">
+            <img src="assets/img/cardboard.png" alt="" class="responsive-img" width="9%" height="9%">
+            <img src="assets/img/cloud.png" alt="" class="responsive-img" width="10%" height="10%">
+            <img src="assets/img/firebase.png" alt="" class="responsive-img" width="7%" height="7%">
+            <img src="assets/img/polymer.png" alt="" class="responsive-img" width="7%" height="7%">
+            <img src="assets/img/tensor-flow.png" alt="" class="responsive-img" width="8%" height="8%">
+            <div style="height:50px;"></div>
+        </div>
+    </div>
+
+    <footer class="page-footer blue-grey darken-4">
+        <div class="container">
+            <div style="height:30px;"></div>
+            <div class="row">
+                <div class="col s3">
+                    <h5><strong>About Us</strong></h5>
+                    <ul>
+                        <li>About</li>
+                        <li>Home</li>
+                        <li>Blog</li>
+                        <li>Events</li>
+                        <li>Team</li>
+                        <li>Code of Conduct</li>
+                        <li>Google Developers Page</li>
+                    </ul>
+                </div>
+                <div class="col s3">
+                    <h5><strong>Get Involved</strong></h5>
+                    <ul>
+                        <li>Become a sponsor</li>
+                        <li>Become a volunteer</li>
+                        <li>Speaker Request</li>
+                    </ul>
+                </div>
+                <div class="col s3">
+                    <h5><strong>Resources</strong></h5>
+                    <ul>
+                        <li>Media Kit</li>
+                        <li>Photo Gallery</li>
+                    </ul>
+                </div>
+                <div class="col s3">
+                    <h5><strong>Contact Us</strong></h5>
+                    <p>Follow us on our social media pages</p>
+                    <div class="row center-align">
+                        <div class="col s3">
+                            <a href="#" class="waves-effect waves-light white-text center-align"><img src="assets/img/google-plus.png" alt="" width="80%" height="80%"></a>
+                        </div>
+                        <div class="col s3">
+                            <a href="#" class="waves-effect waves-light white-text center-align"><img src="assets/img/facebook.png" alt="" width="70%" height="70%"></a>
+                        </div>
+                        <div class="col s3">
+                            <a href="#" class="waves-effect waves-light white-text center-align"><img src="assets/img/twitter.png" alt="" width="70%" height="70%"></a>
+                        </div>
+                        <div class="col s3">
+                            <a href="#" class="waves-effect waves-light white-text center-align"><img src="assets/img/instagram.png" alt="" width="70%" height="70%"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+        </div>
+
+        <div class="footer-copyright blue-grey darken-3">
+            <div class="container">
+                <div class="left valign-wrapper">
+                    <img src="assets/img/gdg-logo.png" class="responsive-img" alt="" width="2.2%" height="2.2%">
+                    <span style="margin-left:15px;"><strong>GDG ZAMBOANGA</strong></span>
+                </div>
+                <div class="right"><small>© 2018 All Rights Reserved</small></div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.js"></script>   
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          //document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          //document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>

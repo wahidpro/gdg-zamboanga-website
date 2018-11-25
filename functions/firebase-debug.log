@@ -1,0 +1,41 @@
+[debug] [2018-08-16T07:21:56.502Z] ----------------------------------------------------------------------
+[debug] [2018-08-16T07:21:56.549Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\aljho\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only hosting
+[debug] [2018-08-16T07:21:56.549Z] CLI Version:   4.0.3
+[debug] [2018-08-16T07:21:56.549Z] Platform:      win32
+[debug] [2018-08-16T07:21:56.549Z] Node Version:  v8.11.3
+[debug] [2018-08-16T07:21:56.565Z] Time:          Thu Aug 16 2018 15:21:56 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:21:56.565Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-16T07:21:56.799Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-16T07:21:56.799Z] > authorizing via signed-in user
+[debug] [2018-08-16T07:21:56.815Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-16T07:21:56.815Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/dsSiflAp0hJoUyK6QfmRMXKXpdnQ78AfiG2OIIcsdBU',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Aug 16 2018 15:21:56 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:21:57.580Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-16T07:21:57.627Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/gdg-zamboanga-website-573f2  
+  
+ Thu Aug 16 2018 15:21:57 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:21:59.127Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-16T07:21:59.127Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/gdg-zamboanga-website-573f2/tokens  
+  
+ Thu Aug 16 2018 15:21:59 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:22:00.268Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-16T07:22:00.283Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/gdg-zamboanga-website-573f2  
+  
+ Thu Aug 16 2018 15:22:00 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:22:02.002Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\xampp\htdocs\gdg-zamboanga-website'...
+[info] 
+[debug] [2018-08-16T07:22:02.017Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/901776976327/clients/_:getWebAppConfig  
+  
+ Thu Aug 16 2018 15:22:02 GMT+0800 (Malay Peninsula Standard Time)
+[debug] [2018-08-16T07:22:03.424Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

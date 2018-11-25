@@ -1,0 +1,39 @@
+.semi-grey-text > * {
+    color: #212121 !important;
+}
+.nav {
+    height: auto;
+    padding: 20px;
+}
+.brand-logo {
+    font-size: 1.5rem !important;
+}
+.wwd-section .wwd-header {
+    padding-top: 50px;
+}
+.wwd-section img {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.wwd-section p {
+    padding-bottom: 50px;
+}
+.events-section {
+    background-color :#db3236;
+}
+.event-text {
+    width: 100%;
+    color: #d32f2f !important;
+}
+.blog-col {
+    margin-bottom: 30px;
+}
+.team-section {
+    background-color: #4885ed !important;
+}
+.team-learn-more-link {
+    padding: 15px;
+}
+.col.padding-2 {
+    padding: 1.5rem;
+}

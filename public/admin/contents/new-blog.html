@@ -1,0 +1,47 @@
+<div style="height:30px"></div>
+<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="list.html">Back</a>
+<h3>New Blog</h3>
+<div style="height:3rem;"></div>
+<div class="container">
+    <div class="row">
+        <div class="left">
+            <p>
+                <label for="is-blog-cb-opt1" style="margin-right:1rem;"><input id="is-blog-cb-opt1" name="is-blog" type="radio" value="true" checked>
+                    <span>Blog</span>
+                </label>
+                <label for="is-blog-cb-opt2"><input id="is-blog-cb-opt2" name="is-blog" type="radio" value="false">
+                    <span>Event</span>
+                </label>
+            </p>
+        </div>
+        <div class="right">
+            <p>
+                <label for="is-draft-cb"><input id="is-draft-cb" name="is-draft" type="checkbox" checked>
+                    <span>Draft</span>
+                </label>
+            </p>
+        </div>
+        <div class="input-field col s12">
+            <input type="text" id="blog-title" name="blog-title" class="validate">
+            <label for="blog-title">Blog Title</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea type="text" id="blog-content" name="blog-content" class="materialize-textarea"></textarea>
+            <label for="blog-content">Blog Content</label>
+        </div>
+        <div id="event" class="hide">
+            <div class="input-field col s6">
+                <input type="text" id="ds" name="date-start" class="datepicker">
+                <label for="ds">Date Start</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="de" name="date-end" class="datepicker">
+                <label for="de">Date End</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" id="event-location" name="event-location" class="validate">
+                <label for="event-location">Event Location</label>
+            </div>
+        </div>
+    </div>
+</div>
