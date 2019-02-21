@@ -15,13 +15,21 @@
         <div class="col offset-s4 s4 offset-s4">
             <img src="../assets/img/gdg-logo.png" class="responsive-img" alt="" width="13%" height="13%">
             <h5><strong>GDG Zamboanga</strong></h5>
-            <p>You must login to proceed</p>
+            <p>Sign up</p>
         </div>
     </div>
     <div class="row center-align">
         <div class="col offset-s4 s4 offset-s4 white">
             <div style="height:5px"></div>
             <div>
+                <div class="input-field col s12">
+                    <input type="text" id="txtFirstName" name="firstname" class="validate">
+                    <label for="text">First name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="txtLastName" name="lastname" class="validate">
+                    <label for="text">Last name</label>
+                </div>
                 <div class="input-field col s12">
                     <input type="email" id="txtEmail" name="email" class="validate">
                     <label for="email">Email</label>
@@ -30,12 +38,12 @@
                     <input type="password" id="txtPassword" name="password" class="validate">
                     <label for="password">Password</label>
                 </div>
-                <button id="btnLogin" name="login" onclick="handleLogin()" class="waves-effect waves-light btn" style="width:100%;margin-bottom:3%;">
-                    Log in
+                <button id="btnSignUp" name="signup" onclick="handleSignUp()" class="waves-effect waves-light btn" style="width:100%;margin-bottom:3%;">
+                    Sign up
                 </button>
 
-                <button id="btnSignUp" name="signup" onclick="toggleSignUp()" class="waves-effect waves-light btn" style="width:100%;">
-                    Sign up
+                <button id="btnLogin" name="login" onclick="toggleLogin()" class="waves-effect waves-light btn" style="width:100%;">
+                    Log in
                 </button>
             </div>
             <div style="height:20px"></div>
@@ -52,7 +60,7 @@
             <a href="./..">HOME</a>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
     <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="../assets/js/moment.min.js"></script> 

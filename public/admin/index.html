@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.css"-->
+    <link rel="stylesheet" href="../assets/css/materialize.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>GDG Zamboanga</title>
-    <link rel="icon" href="./assets/img/gdg-logo.png">
+    <link rel="icon" href="../assets/img/gdg-logo.png">
 </head>
 <body style="background-color:#efefef;">
 
@@ -18,19 +19,21 @@
                 <div style="height:100px;"></div>
                 <ul class="collapsible popout">
                     <li class="red darken-2">
-                        <div class="collapsible-header red darken-2 white-text"><b>Andrew Baes</b></div>
+                        <div class="collapsible-header red darken-2 white-text"><b id="account-name"></b></div>
                         <div class="collapsible-body red darken-2 white-text">
-                            <img src="./assets/img/drew.jpg" alt="" class="circle" width="30%" height="30%">
+                            <ul class="collection">
+                                <a class="collection-item red darken-3 white-text waves-effect waves-light grey-text dashboard-menu" onclick="handleLogout()">Logout</a>
+                            </ul>
                         </div>
                     </li>
                     <li class="yellow darken-2">
                         <div class="collapsible-header yellow darken-2 white-text"><b>BLOGS</b></div>
                         <div class="collapsible-body yellow darken-2 white-text">
                             <ul class="collection">
-                                <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="list.html">List</a>
-                                <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="categories.html">Categories</a>
+                                <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="list.html" onclick="fetchBlogList()">List</a>
+                                <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="categories.html" onclick="fetchCategory()">Categories</a>
                                 <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="drafts.html">Drafts</a>
-                                <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="reviews.html">On Reviews</a>
+                                <!--a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="reviews.html">On Reviews</a-->
                                 <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="published.html">Published</a>
                                 <a class="collection-item yellow darken-3 white-text waves-effect waves-light grey-text dashboard-menu" data-content="archived.html">Archived</a>
                             </ul>
@@ -44,23 +47,32 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="green darken-1 white-text">
+                    <!-- <li class="green darken-1 white-text">
                         <div class="collapsible-header green darken-1 white-text"><b>SITE</b></div>
                         <div class="collapsible-body green darken-1 white-text">
                             <ul class="collection green darken-1 white-text">
                                 <a class="collection-item green darken-2 waves-effect waves-light white-text dashboard-menu" data-content="social-media.html">Social Media</a>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div id="content" class="col s9" data-content="">
             </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.js"></script>
-    <script src="index.js" charset="utf-8"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../assets/js/moment.min.js"></script>    
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script-->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.js"></script-->  
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <script src="admin/index.js" charset="utf-8"></script>
+    <script>
+        window.onload = function() {
+            initApp();
+        };
+    </script>
 </body>
 </html>

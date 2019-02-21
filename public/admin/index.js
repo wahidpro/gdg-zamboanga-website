@@ -10,6 +10,7 @@ $(function() {
 
         $('.collapsible').collapsible();
         $('.datepicker').datepicker();
+        $('select').formSelect();
     } catch(err) {
         console.log(err.getMessage());
     }
@@ -32,17 +33,23 @@ $(function() {
 
 })
 
+
 .on('change',  '[name="is-blog"]', function() {
 
-    if ($(this).val() == 'false')
+    if ($(this).val() == 'false') {
         $('#event').removeClass('hide');
-    else
+        $('#category').addClass('hide');
+    }
+    else{
         $('#event').addClass('hide');
+        $('#category').removeClass('hide');
+    }
 
 })
 
 .ajaxComplete(function() {
     $('.datepicker').datepicker();
+    $('select').formSelect();
 })
 
 ;
@@ -50,7 +57,7 @@ $(function() {
 var requestcontent = function(content = 'default.html') {
     try {
         return $.ajax({
-                url: './contents/' + content,
+                url: './admin/contents/' + content,
                 type: 'GET',
                 data: {},
                 dataType: 'html'

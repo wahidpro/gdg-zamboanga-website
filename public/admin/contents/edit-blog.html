@@ -1,6 +1,6 @@
 <div style="height:30px"></div>
 <a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="list.html">Back</a>
-<h3>New Blog</h3>
+<h3>Edit Blog</h3>
 <div style="height:3rem;"></div>
 <div class="container">
     <div class="row">
@@ -27,17 +27,12 @@
         </div>
         <div class="input-field col s12">
             <textarea type="text" id="blog-content" name="blog-content" class="materialize-textarea"></textarea>
-            <label for="blog-content">Blog Content</label>
+            <label for="blog-content">Blog Contenfst</label>
         </div>
-        <div id="category" class="input-field col s12">
-            <div class="row">
-                   <select id="drpCategory">
-                      <option value = "" disabled selected>Select Category</option>
-                   </select> 
-                   <label for="blog-category">Blog Category</label>
-            </div>              
+        <div class="input-field col s12">
+            <textarea type="text" id="blog-category" name="blog-category" class="materialize-textarea"></textarea>
+            <label for="blog-category">Blog Category</label>
         </div>
-       
         <div id="event" class="hide">
             <div class="input-field col s6">
                 <input type="text" id="ds" name="date-start" class="datepicker">
@@ -58,7 +53,7 @@
         </div>
          <div class="row">
                 <div class="col s12">
-                    <a href="#" id="btnSaveBlog" onclick="createBlog()" class="waves-effect waves-light blue darken-2 btn right">Save</a>
+                    <a href="#" id="btnPublishedBlog" onclick="createBlog()" class="waves-effect waves-light blue darken-2 btn right">Published</a>
                 </div>
         </div>
     </div>
