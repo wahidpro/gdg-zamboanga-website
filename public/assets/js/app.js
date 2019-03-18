@@ -20,9 +20,7 @@ function init() {
  */
 function handleLogin() {
     if (firebase.auth().currentUser) {
-        // [START signout]
         firebase.auth().signOut();
-        // [END signout]
     } else {
         var email = document.getElementById('txtEmail').value;
         var password = document.getElementById('txtPassword').value;
@@ -34,28 +32,21 @@ function handleLogin() {
             alert('Please enter a password.');
             return;
         }
-        // Sign in with email and pass.
-        // [START authwithemail]
         firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
             alert('Bienvenidos!');
             window.location = './../admin';
         }).catch(function(error) {
-            // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            // [START_EXCLUDE]
             if (errorCode === 'auth/wrong-password') {
                 alert('Wrong password.');
             } else {
                 alert(errorMessage);
             }
             console.log(error);
-            //document.getElementById('quickstart-sign-in').disabled = false;
-            // [END_EXCLUDE]
         });
-        // [END authwithemail]
     }
-    //document.getElementById('quickstart-sign-in').disabled = true;
+   
 }
 
 /**
@@ -63,10 +54,8 @@ function handleLogin() {
  */
 function handleLogout() {
     if (firebase.auth().currentUser) {
-        // [START signout]
         firebase.auth().signOut();
         window.location = "./../admin/login.html";
-        // [END signout]
     }
 }
 
@@ -95,8 +84,7 @@ function handleSignUp() {
         alert('Please enter a password.');
         return;
     }
-    // Sign in with email and pass.
-    // [START createwithemail]
+
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(resp) {
         alert('Sign up has been succesfully done.');
         //INSERT TO DATABASE
@@ -134,56 +122,50 @@ function handleSignUp() {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // [START_EXCLUDE]
         if (errorCode == 'auth/weak-password') {
             alert('The password is too weak.');
         } else {
             alert(errorMessage);
         }
         console.log(error);
-        // [END_EXCLUDE]
     });
-    // [END createwithemail]
 }
 
 /**
  * Sends an email verification to the user.
  */
 function sendEmailVerification() {
-    // [START sendemailverification]
     firebase.auth().currentUser.sendEmailVerification().then(function() {
-        // Email Verification sent!
-        // [START_EXCLUDE]
+       
         alert('Email Verification Sent!');
         alert('Please verify your email.');
         firebase.auth().signOut();
-        // [END_EXCLUDE]
+
     });
     // [END sendemailverification]
 }
 
 function sendPasswordReset() {
     var email = document.getElementById('txtEmail').value;
-    // [START sendpasswordemail]
+    
     firebase.auth().sendPasswordResetEmail(email).then(function() {
-        // Password Reset Email Sent!
-        // [START_EXCLUDE]
+      
         alert('Password Reset Email Sent!');
-        // [END_EXCLUDE]
+        
     }).catch(function(error) {
-        // Handle Errors here.
+      
         var errorCode = error.code;
         var errorMessage = error.message;
-        // [START_EXCLUDE]
+       
         if (errorCode == 'auth/invalid-email') {
             alert(errorMessage);
         } else if (errorCode == 'auth/user-not-found') {
             alert(errorMessage);
         }
         console.log(error);
-        // [END_EXCLUDE]
+        
     });
-    // [END sendpasswordemail];
+    
 }
 
 
@@ -219,7 +201,10 @@ function createCategory() {
 
 function createCategoryElement(categoryId, categoryName, ctr) {
 
-    let html = '<li class="collection-item category ' + categoryId + '"><span class="category-name"></span></li>';
+    let html = '<li class="collection-item category ' + categoryId + '"><span class="category-name"></span>' +
+                '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
+                '<a class="waves-effect waves-light blue darken-3 btn right sub-menu" data-content="blog.html">EDIT</a>' + 
+                '<a class="waves-effect waves-light red darken-3 btn right sub-menu" data-content="blog.html">DELETE</a> &nbsp; </li>';
 
     let ul = document.getElementById('category-list');
     ul.innerHTML += html;
@@ -308,8 +293,8 @@ function createBlog() {
       
     } else {
         //Event
-        let eventStartDate = document.getElementById('date-start').value;
-        let eventEndDate = document.getElementById('date-end').value;
+        let eventStartDate = document.getElementById('ds').value;
+        let eventEndDate = document.getElementById('de').value;
         let eventLocation = document.getElementById('event-location').value;
         let eventMeetupLink = document.getElementById('event-meetup-link').value;
 
@@ -328,8 +313,8 @@ function createBlog() {
             },
             type: {
                 blog: {
-                    status: true,
-                    type: 'Wala pa kasi dapat get sa categories'
+                    status: false,
+                    type: 'N/A'
                 },
                 event: {
                     date_start: eventStartDate,
@@ -384,6 +369,8 @@ function createBlogListElement(blogId, blogTitle, ctr) {
                     '</span>' +
                     '<span class="grey-text blog-date"></span>' +
                     '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
+                    '<a class="waves-effect waves-light blue darken-3 btn right sub-menu" data-content="blog.html">EDIT</a>' + 
+                    '<a class="waves-effect waves-light red darken-3 btn right sub-menu" data-content="blog.html">DELETE</a>' +
                 '</div>' +
             '</div>' +
         '</div>';
@@ -412,6 +399,110 @@ function fetchBlogList() {
 
 }
 
+function createEventListElementOne(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s12">' +
+                '<div class="card small horizontal hoverable">' +
+                    '<div class="card-image">' +
+                        '<!-- <img src="assets/img/wtm.jpg" alt=""> -->' +
+                    '</div>' +
+                    '<div class="card-stacked semi-grey-text">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title event-text" id="event-1-title"><b></b></span>' +
+                            '<a href="#" class="left-align" id="event-1-time">Event time</a>&emsp;' +
+                            '<a href="#" class="right-align" id="event-1-location">Event location</a>' +
+                            '<p id="event-1-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>' +
+                        '</div>' +
+                        '<div class="card-action right-align">' +
+                            '<a class="waves-effect waves-light red darken-2 btn">READ MORE</a>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+                '</div>';
+
+    let div = document.getElementById('event-1');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('event-1-title').innerText = blogTitle;
+    document.getElementById('event-1-time').innerText = blogTime;
+    document.getElementById('event-1-location').innerText = blogLocation;
+    document.getElementById('event-1-body').innerText = blogBody;
+
+}
+
+function createEventListElementTwo(blogId, blogTitle, ctr) {
+
+    let html = '<div class="col s12 blog ' + blogId + '">' +
+            '<div class="card hoverable">' +
+                '<div class="card-content">' +
+                    '<span class="card-title blog-title">' +
+                        '<span class="right badge blog-published"></span>' +
+                    '</span>' +
+                    '<span class="grey-text blog-date"></span>' +
+                    '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    let div = document.getElementById('event-list');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementsByClassName('blog-title')[ctr].innerText = blogTitle;
+    document.getElementById('event-1-title').innerText = blogTitle;
+    document.getElementById('event-1-title').innerText = blogTitle;
+    document.getElementById('event-1-title').innerText = blogTitle;
+
+}
+
+function createEventListElementThree(blogId, blogTitle, ctr) {
+
+    let html = '<div class="col s12 blog ' + blogId + '">' +
+            '<div class="card hoverable">' +
+                '<div class="card-content">' +
+                    '<span class="card-title blog-title">' +
+                        '<span class="right badge blog-published"></span>' +
+                    '</span>' +
+                    '<span class="grey-text blog-date"></span>' +
+                    '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    let div = document.getElementById('event-list');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('event-list').innerText = blogTitle;
+
+}
+
+function fetchBlogListHome() {
+
+    let blogRef = firebase.database().ref('web').child('blog').limitToLast(1);
+
+    blogRef.on('value', function(snapshot) {
+        let ctr = 0;
+        snapshot.forEach(function(childSnapshot) {
+            switch(ctr) {
+                case 0:
+                createEventListElementOne(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                break;
+
+                // case 1:
+                // createEventListElementOne(childSnapshot.key, childSnapshot.val().title,ctr);
+                // break;
+
+                // case 2:
+                // createEventListElementOne(childSnapshot.key, childSnapshot.val().title,ctr);
+                // break;
+
+                default:
+                break;
+            }
+            console.log(childSnapshot.key);
+            ctr++;
+        });
+
+    });
+
+}
 function createMember() {
 
     let firstName = document.getElementById('firstname').value;

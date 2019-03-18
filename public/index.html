@@ -97,31 +97,14 @@
             <div class="container">
                 <h3><strong>Events</strong></h3>
                 <div style="height:50px;"></div>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="card small horizontal hoverable">
-                            <div class="card-image">
-                                <img src="assets/img/wtm.jpg" alt="">
-                            </div>
-                            <div class="card-stacked semi-grey-text">
-                                <div class="card-content">
-                                    <span class="card-title event-text"><b>Women Techmakers</b></span>
-                                    <a href="#" class="left-align">Event time</a>&emsp;
-                                    <a href="#" class="right-align">Event location</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                                <div class="card-action right-align">
-                                    <a class="waves-effect waves-light red darken-2 btn">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="event-1">
+                    <!-- Event 1 -->
                 </div>
-                <div class="row">
+                <div class="row" id="event-2">
                     <div class="col s6">
                         <div class="card hoverable">
                             <div class="card-image">
-                                <img src="assets/img/wtm.jpg" alt="">
+                                <!-- <img src="assets/img/wtm.jpg" alt=""> -->
                             </div>
                             <div class="card-content semi-grey-text">
                                 <span class="card-title event-text"><b>Women Techmakers</b></span>
@@ -134,10 +117,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s6">
+                    <div class="col s6" id="event-3">
                         <div class="card hoverable">
                             <div class="card-image">
-                                <img src="assets/img/wtm.jpg" alt="">
+                                <!-- <img src="assets/img/wtm.jpg" alt=""> -->
                             </div>
                             <div class="card-content semi-grey-text">
                                 <span class="card-title event-text"><b>Women Techmakers</b></span>
@@ -345,7 +328,7 @@
 
     </footer>
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
-    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="assets/js/moment.min.js"></script> 
@@ -373,6 +356,11 @@
           //document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
         }
       });
+    </script>
+     <script>
+        window.onload = function() {
+            fetchBlogListHome();
+        };
     </script>
   </body>
 </html>
