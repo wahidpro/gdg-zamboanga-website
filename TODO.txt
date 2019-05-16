@@ -7,6 +7,10 @@ GUEST SIDE -- BLOG AND EVENT READ MORE
 
       !!!URGENT!!!
       -RENDER ALL (DYNAMIC) PRIORITY
+        - HOME 
+            -BLOG - DONE
+            -EVENT - DONE
+            -MEMBER -NOT DONE (save picture database)
       -EDIT
       -SEARCH
            

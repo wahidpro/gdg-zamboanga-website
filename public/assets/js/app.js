@@ -244,7 +244,6 @@ function fetchCategoryDropwdown() {
        
         snapshot.forEach(function(childSnapshot) {
             createCategoryDropwdownElement(childSnapshot.val().categoryName);
-           
         });
 
     });
@@ -308,7 +307,7 @@ function createBlog() {
                 draft: isDraft,
                 published: {
                     date_published: isDraft ? '' : firebase.database.ServerValue.TIMESTAMP,
-                    status: isDraft
+                    status: isDraft ? false : true
                 }
             },
             type: {
@@ -399,9 +398,10 @@ function fetchBlogList() {
 
 }
 
+/** START OF HOME -- EVENT DYNAMIC LIST */
 function createEventListElementOne(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
 
-    let html = '<div class="col s12">' +
+    let html = '<div class="col s12 blog ' + blogId + '">' +
                 '<div class="card small horizontal hoverable">' +
                     '<div class="card-image">' +
                         '<!-- <img src="assets/img/wtm.jpg" alt=""> -->' +
@@ -419,7 +419,7 @@ function createEventListElementOne(blogId, blogTitle, blogTime, blogLocation,blo
                     '</div>' +
                 '</div>' +
                 '</div>';
-
+    //READ MORE NOT WORKING
     let div = document.getElementById('event-1');
     div.innerHTML += html;
     // Set values.
@@ -430,72 +430,87 @@ function createEventListElementOne(blogId, blogTitle, blogTime, blogLocation,blo
 
 }
 
-function createEventListElementTwo(blogId, blogTitle, ctr) {
+function createEventListElementTwo(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
 
-    let html = '<div class="col s12 blog ' + blogId + '">' +
+    let html = '<div class="col s6 blog ' + blogId + '">' +
             '<div class="card hoverable">' +
-                '<div class="card-content">' +
-                    '<span class="card-title blog-title">' +
-                        '<span class="right badge blog-published"></span>' +
-                    '</span>' +
-                    '<span class="grey-text blog-date"></span>' +
-                    '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
+                '<div class="card-image">' +
+                '</div>' +
+                '<div class="card-content semi-grey-text">' +
+                    '<span class="card-title event-text" id="event-2-title"><b></b></span>' +
+                    '<a href="#" class="left-align" id="event-2-time">Event time</a>&emsp;' +
+                    '<a href="#" class="right-align" id="event-2-location">Event location</a>' +
+                    '<p id="event-2-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>' +
+                '</div>' +
+                '<div class="card-action right-align">' +
+                    '<a class="waves-effect waves-light red darken-2 btn"> READ MORE </a>' +
                 '</div>' +
             '</div>' +
         '</div>';
-    let div = document.getElementById('event-list');
+    //READ MORE NOT WORKING
+    let div = document.getElementById('event-2');
     div.innerHTML += html;
     // Set values.
-    document.getElementsByClassName('blog-title')[ctr].innerText = blogTitle;
-    document.getElementById('event-1-title').innerText = blogTitle;
-    document.getElementById('event-1-title').innerText = blogTitle;
-    document.getElementById('event-1-title').innerText = blogTitle;
+    document.getElementById('event-2-title').innerText = blogTitle;
+    document.getElementById('event-2-time').innerText = blogTime;
+    document.getElementById('event-2-location').innerText = blogLocation;
+    document.getElementById('event-2-body').innerText = blogBody;
 
 }
 
-function createEventListElementThree(blogId, blogTitle, ctr) {
+function createEventListElementThree(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
 
-    let html = '<div class="col s12 blog ' + blogId + '">' +
-            '<div class="card hoverable">' +
-                '<div class="card-content">' +
-                    '<span class="card-title blog-title">' +
-                        '<span class="right badge blog-published"></span>' +
-                    '</span>' +
-                    '<span class="grey-text blog-date"></span>' +
-                    '<a class="waves-effect waves-light yellow darken-3 btn right sub-menu" data-content="blog.html">VIEW</a>' +
-                '</div>' +
-            '</div>' +
-        '</div>';
-    let div = document.getElementById('event-list');
-    div.innerHTML += html;
-    // Set values.
-    document.getElementById('event-list').innerText = blogTitle;
+    let html = '<div class="card hoverable blog ' + blogId + '">' +
+                    '<div class="card-content">' +
+                        '<div class="card-image">' +
+                        '</div>' +
+                        '<div class="card-content semi-grey-text">' +
+                            '<span class="card-title event-text" id="event-3-title"><b></b></span>' +
+                            '<a href="#" class="left-align" id="event-3-time">Event time</a>&emsp;' +
+                            '<a href="#" class="right-align" id="event-3-location">Event location</a>' +
+                            '<p id="event-3-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>' +
+                        '</div>' +
+                        '<div class="card-action right-align">' +
+                            '<a class="waves-effect waves-light red darken-2 btn"> READ MORE </a>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+        let div = document.getElementById('event-3');
+        div.innerHTML += html;
+        // Set values.
+        document.getElementById('event-3-title').innerText = blogTitle;
+        document.getElementById('event-3-time').innerText = blogTime;
+        document.getElementById('event-3-location').innerText = blogLocation;
+        document.getElementById('event-3-body').innerText = blogBody;
 
 }
 
-function fetchBlogListHome() {
+function fetchEventListHome() {
 
-    let blogRef = firebase.database().ref('web').child('blog').limitToLast(1);
+    //let blogRef = firebase.database().ref('web').child('blog').limitToLast(1);
+    let blogRef = firebase.database().ref('web').child('blog');
 
     blogRef.on('value', function(snapshot) {
         let ctr = 0;
         snapshot.forEach(function(childSnapshot) {
-            switch(ctr) {
-                case 0:
-                createEventListElementOne(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
-                break;
+            if(childSnapshot.val().type.event.status === true) {
+                switch(ctr) {
+                    case 0:
+                    createEventListElementOne(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
 
-                // case 1:
-                // createEventListElementOne(childSnapshot.key, childSnapshot.val().title,ctr);
-                // break;
+                    case 1:
+                    createEventListElementTwo(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
 
-                // case 2:
-                // createEventListElementOne(childSnapshot.key, childSnapshot.val().title,ctr);
-                // break;
+                    case 2:
+                    createEventListElementThree(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
 
-                default:
-                break;
-            }
+                    default:
+                    break;
+                }  
+            } 
             console.log(childSnapshot.key);
             ctr++;
         });
@@ -503,6 +518,199 @@ function fetchBlogListHome() {
     });
 
 }
+/** END OF HOME -- EVENT DYNAMIC LIST */
+
+/** START OF HOME - BLOG DYNAMIC LIST */
+function createBlogListElementOne(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s6 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-1');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-1-title').innerText = blogTitle;
+    document.getElementById('blog-1-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-1-body').innerText = blogBody;
+
+}
+
+function createBlogListElemenTwo(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s6 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-2');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-2-title').innerText = blogTitle;
+    document.getElementById('blog-2-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-2-body').innerText = blogBody;
+
+}
+
+function createBlogListElementThree(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s4 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-3');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-3-title').innerText = blogTitle;
+    document.getElementById('blog-3-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-3-body').innerText = blogBody;
+
+}
+
+function createBlogListElementFour(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s4 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-4');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-4-title').innerText = blogTitle;
+    document.getElementById('blog-4-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-4-body').innerText = blogBody;
+
+}
+
+function createBlogListElementFive(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s4 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-5');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-5-title').innerText = blogTitle;
+    document.getElementById('blog-5-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-5-body').innerText = blogBody;
+
+}
+
+function createBlogListElementSix(blogId, blogTitle, blogTime, blogLocation,blogBody, ctr) {
+
+    let html = '<div class="col s4 blog-col blog ' + blogId + '">' +
+                    '<div class="card hoverable">' +
+                        '<div class="card-content">' +
+                            '<span class="card-title" id="blog-1-title">' +
+                            '</span>' +
+                            '<span class="grey-text"></span>' +
+                            '<br><br><br>' +
+                            '<p id="blog-1-body"></p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+    //READ MORE NOT WORKING
+    let div = document.getElementById('blog-6');
+    div.innerHTML += html;
+    // Set values.
+    document.getElementById('blog-6-title').innerText = blogTitle;
+    document.getElementById('blog-6-time').innerText = "Posted:&emsp;" + blogTime;
+    //document.getElementById('blog-1-location').innerText = blogLocation;
+    document.getElementById('blog-6-body').innerText = blogBody;
+
+}
+
+function fetchBlogListHome() {
+
+    //let blogRef = firebase.database().ref('web').child('blog').limitToLast(1);
+    let blogRef = firebase.database().ref('web').child('blog');
+
+    blogRef.on('value', function(snapshot) {
+        let ctr = 0;
+        snapshot.forEach(function(childSnapshot) {
+            if(childSnapshot.val().type.blog.status === true) {
+                switch(ctr) {
+                    case 0:
+                    createBlogListElementOne(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    case 1:
+                    createBlogListElementTwo(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    case 2:
+                    createBlogListElementThree(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    case 3:
+                    createBlogListElementFour(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    case 4:
+                    createBlogListElementFive(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    case 5:
+                    createBlogListElementSix(childSnapshot.key, childSnapshot.val().title, childSnapshot.val().type.event.date_start + "-" + childSnapshot.val().type.event.date_end, childSnapshot.val().type.event.location, childSnapshot.val().content, ctr);
+                    break;
+
+                    default:
+                    break;
+                }  
+            } 
+            console.log(childSnapshot.key);
+            ctr++;
+        });
+
+    });
+
+}
+/** END OF HOME - BLOG DYNAMIC LIST */
 function createMember() {
 
     let firstName = document.getElementById('firstname').value;
