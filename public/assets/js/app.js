@@ -717,6 +717,30 @@ function createMember() {
     let lastName = document.getElementById('lastname').value;
     let email = document.getElementById('email').value;
     let description = document.getElementById('description').value;
+    let btnFile = document.getElementById('btnFile');
+
+    
+    let file = btnFile.files[0];
+
+    let storageRef = firebase.storage().ref('img/' + file.name);
+
+    storageRef.put(file);
+
+    // task.on('state_changed',
+    //     function progress(snapshot) {
+
+    //     },
+
+    //     function error(err) {
+
+    //     },
+        
+    //     function complete(){
+
+    //     }
+        
+    // );
+
 
     let newMemberKey = firebase.database().ref('web').child('member').push().key;
     let memberData = {
@@ -725,6 +749,7 @@ function createMember() {
         lastName: lastName,
         email: email,
         description: description,
+        image: file.name,
         created_at: firebase.database.ServerValue.TIMESTAMP
     };
 
